@@ -90,3 +90,21 @@ path:hover {
     cursor: pointer;
 }
 
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+    transition: 200ms;
+}
+
+.close.btn i {
+    font-size: 2em;;
+}
+
+.close-btn:hover {
+    background-color: #c99aff;
+}
+
