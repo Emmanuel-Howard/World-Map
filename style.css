@@ -8,3 +8,22 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Scrollbar Design */
+::-webkit-scrollbar {
+    width:10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2d2733;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #dcbfff;
+}
+
