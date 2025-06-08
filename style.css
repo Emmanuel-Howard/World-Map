@@ -27,3 +27,32 @@ body {
     background: #dcbfff;
 }
 
+.world_map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: max-content;
+    height: max-content;
+    min-height: 30em;
+    background-color: #151218;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+svg {
+    width: 100vw;
+    height: 100vh;
+}
+
+path {
+    fill: #443d4b;
+    stroke: #dcbfff;
+    transition: 100ms;
+}
+
+path:hover {
+    fill: #c99aff;
+}
+
+
