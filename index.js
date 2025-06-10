@@ -10,3 +10,10 @@ const zoomOutBtn = document.querySelector(".zoom.out");
 const zoomValueOutput = document.querySelector(".zoom.value");
 
 /* Data Outputs */
+const countryNameOutput = document.querySelector(".country.name");
+const CountryFlagOutput = document.querySelector(".country.flag");
+const cityOutput = document.querySelector(".city");
+const areaOutput = document.querySelector(".area");
+const currencyOutput = document.querySelector(".currency");
+const languagesOutput = document.querySelector(".languages");
+
