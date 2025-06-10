@@ -108,3 +108,39 @@ path:hover {
     background-color: #c99aff;
 }
 
+.country.flag {
+    width: 60%;
+    max-width: 20em;
+    margin-blocK; 1em;
+}
+
+.side.panel .container > ul > li {
+    margin-bottom: 2em;
+}
+
+.side.pantel li {
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+.side,panel ul ul {
+    margin-top: 1em;
+    font-size: 0.7em;
+    list-style: circle;
+    padding-left: 2em;
+}
+
+.side.panel strong {
+    color: #dcbfff;
+}
+
+.zoom.controls {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}
+
+.zoom.controls button {
+    
+}
+
