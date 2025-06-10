@@ -62,7 +62,7 @@ countries.forEach(country => {
         // Open the side panel
         sidePanel.classList.add("side.panel.open");
         // Fetch country data from the API
-        fetch('https://rerstcountries.com/v3.1/name/${clickedCountryName}?fullText=true')
+        fetch('https://restcountries.com/v3.1/name/${clickedCountryName}?fullText=true')
         .then(response => {
             // Check if the response is ok
             if (!response.ok) {
@@ -76,12 +76,43 @@ countries.forEach(country => {
             setTimeout(() =>{
                 // Extract data and output to the side panel
                 countryNameOutput.innerText = data[0].name.common;
-                
-            })
+                // Flag image
+                countryFlagOutput.src = data[0].flags.png;
+                // Capital city
+                cityOutput.innerText = data[0].capital;
+                // Area
+                // Changing number format to include dots in big numbers
+                const formatedNumber = data[0].area.toLocaleString('en-US');
+                areaOutput.innerHTML = formatedNumber + 'km<sup>2</sup>'
+                // Currency
+                // Get the currency object
+                const currencies = data[0].currencies;
+                /* Set currency output to empty string */
+                currencyOutput.innerText = '';
+                // Loop through each onject key in the currencies object
+                Object.keys(currencies).forEach(key => {
+                    // Output name o each currency from selected country
+                    currencyOutput.innerHTML += `<li>${currencies[key].name}</li>`;
+                });
+                // Languages (Like currency)
+                const languages = data[0].languages;
+                languagesOutput.innerText = '';
+                Object.keys(languages).forEach(key => {
+                    languagesOutput.innerHTML += `<li>${languages[key]}</li>`;
+                });
+                // Wait for new flag image to load
+                countryFlagOutput.onload = () => {
+                    // Show container with coutnry data
+                    container.classList.remove("hide");
+                    loading.classList.add("hide");
+                };
+            }, 500);
         })
-
-    })
-
-
-
+        // Handle Errors
+        .catch(error => {
+            loading.innerText = "No data found";
+            console.error("There was a problem with the fetch operation:", error);
+        });
+    });
 });
+
