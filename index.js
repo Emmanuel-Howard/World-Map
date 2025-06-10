@@ -17,3 +17,32 @@ const areaOutput = document.querySelector(".area");
 const currencyOutput = document.querySelector(".currency");
 const languagesOutput = document.querySelector(".languages");
 
+// Loop through all countries
+countries.forEach(country => {
+    // Adds mouse enter event to each country (on cursor hover)
+    country.addEventListener ("mouseenter", function() {
+        // Get all classes of the country
+        const classList = [...this.classList].join('.');
+        console.log(classList);
+        // Create a selector for matching classes
+        const selector = '.' + classList;
+        // Select all territories (svg paths) from the same country
+        const matchingElements = document.querySelectorAll(selector);
+        // Add hover class to all matching elements
+        matchingElements.forEach(el => el.computedStyleMap.fill = "#c99aff");
+    });
+
+    // Adds mouse leave event to each country (on cursor leave)
+    country.addEventListener ("mouseout", function() {
+        const classList = [...this.classList].join('.');
+        const selector = '.' + classList;
+        const matchingElements = document.querySelectorAll(selector);
+        matchingElements.forEach(el => el.computedStyleMap.fill = "#443d4b");
+    });
+
+    // Adds click event to each country
+    country.addEvebtListener("click", function(e) {
+        
+    })
+
+});
