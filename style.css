@@ -27,7 +27,7 @@ body {
     background: #dcbfff;
 }
 
-.world_map {
+.world.map {
     position: absolute;
     top: 0;
     left: 0;
@@ -141,6 +141,28 @@ path:hover {
 }
 
 .zoom.controls button {
-    
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 2em;
+    background-color: #443d4b;
+    color: #fff;
+    border: 1px #dcbfff solid;
+    cursor: pointer;
 }
 
+.zoom.controls button:hover {
+    background-color: #2e2a33;
+}
+
+/* Dusabled Btn */
+button:disabled {
+    background-color: #1d1a20;
+    border: 1px #443d4b solid;
+    color: #333;
+    cursor: default;
+}
+
+.zoom.out {
+    margin-bottom: 10px;
+}
