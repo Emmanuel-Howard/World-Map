@@ -111,7 +111,7 @@ path:hover {
 .country.flag {
     width: 60%;
     max-width: 20em;
-    margin-blocK; 1em;
+    margin-block: 1em;
 }
 
 .side.panel .container > ul > li {
@@ -155,7 +155,7 @@ path:hover {
     background-color: #2e2a33;
 }
 
-/* Dusabled Btn */
+/* Disabled Btn */
 button:disabled {
     background-color: #1d1a20;
     border: 1px #443d4b solid;
