@@ -41,8 +41,30 @@ countries.forEach(country => {
     });
 
     // Adds click event to each country
-    country.addEvebtListener("click", function(e) {
-        
+    country.addEventListener("click", function(e) {
+        // Set loading text
+        loading.innerText = "Loading...";
+        // Hide country data container
+        container.classList.add("hide");
+        // Show loading screen
+        loading.classList.remove("hide");
+        // Variable to hold country name
+        let clickedCountryName;
+        // If the clicked svg path has a name attribute
+        if(e.target.hasAttribute("name")) {
+            // Get the name of the country
+            clickedCountryName = e.target.getAttribute("name");
+            // Else no name attribute
+        } else {
+            // Get the class (country) name
+            clickedCountryName = e.target.classList.value
+        }
+        // Open the side panel
+        sidePanel.classList.add("side.panel.open");
+
+
     })
+
+
 
 });
