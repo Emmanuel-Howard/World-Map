@@ -61,7 +61,24 @@ countries.forEach(country => {
         }
         // Open the side panel
         sidePanel.classList.add("side.panel.open");
-
+        // Fetch country data from the API
+        fetch('https://rerstcountries.com/v3.1/name/${clickedCountryName}?fullText=true')
+        .then(response => {
+            // Check if the response is ok
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            // Parse the response as JSON
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            setTimeout(() =>{
+                // Extract data and output to the side panel
+                countryNameOutput.innerText = data[0].name.common;
+                
+            })
+        })
 
     })
 
