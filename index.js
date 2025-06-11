@@ -1,21 +1,21 @@
 /* Connecting required elements */
 const map = document.querySelector("svg");
 const countries = document.querySelectorAll("path");
-const sidePanel = document.querySelector(".side.panel");
-const container = document.querySelector(".side.panel .container");
-const closeBtn = document.querySelector(".close.btn");
+const sidePanel = document.querySelector(".side-panel");
+const container = document.querySelector(".side-panel .container");
+const closeBtn = document.querySelector(".close-btn");
 const loading = document.querySelector(".loading");
-const zoomInBtn = document.querySelector(".zoom.in");
-const zoomOutBtn = document.querySelector(".zoom.out");
-const zoomValueOutput = document.querySelector(".zoom.value");
+const zoomInBtn = document.querySelector(".zoom-in");
+const zoomOutBtn = document.querySelector(".zoom-out");
+const zoomValueOutput = document.querySelector(".zoom-value");
 
 /* Data Outputs */
 const countryNameOutput = document.querySelector(".country.name");
-const CountryFlagOutput = document.querySelector(".country.flag");
+const countryFlagOutput = document.querySelector(".country.flag");
 const cityOutput = document.querySelector(".city");
 const areaOutput = document.querySelector(".area");
 const currencyOutput = document.querySelector(".currency");
-const languagesOutput = document.querySelector(".languages");
+const languageOutput = document.querySelector(".language");
 
 // Loop through all countries
 countries.forEach(country => {
@@ -60,9 +60,9 @@ countries.forEach(country => {
             clickedCountryName = e.target.classList.value
         }
         // Open the side panel
-        sidePanel.classList.add("side.panel.open");
+        sidePanel.classList.add("open");
         // Fetch country data from the API
-        fetch('https://restcountries.com/v3.1/name/${clickedCountryName}?fullText=true')
+        fetch(`https://restcountries.com/v3.1/name/${clickedCountryName}?fullText=true`)
         .then(response => {
             // Check if the response is ok
             if (!response.ok) {
@@ -91,18 +91,18 @@ countries.forEach(country => {
                 currencyOutput.innerText = '';
                 // Loop through each onject key in the currencies object
                 Object.keys(currencies).forEach(key => {
-                    // Output name o each currency from selected country
+                    // Output name of each currency from selected country
                     currencyOutput.innerHTML += `<li>${currencies[key].name}</li>`;
                 });
-                // Languages (Like currency)
-                const languages = data[0].languages;
-                languagesOutput.innerText = '';
-                Object.keys(languages).forEach(key => {
-                    languagesOutput.innerHTML += `<li>${languages[key]}</li>`;
+                // Language (Like currency)
+                const language = data[0].language;
+                languageOutput.innerText = '';
+                Object.keys(language).forEach(key => {
+                    languageOutput.innerHTML += `<li>${language[key]}</li>`;
                 });
                 // Wait for new flag image to load
                 countryFlagOutput.onload = () => {
-                    // Show container with coutnry data
+                    // Show container with country data
                     container.classList.remove("hide");
                     loading.classList.add("hide");
                 };
